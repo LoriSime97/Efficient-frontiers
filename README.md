@@ -1,6 +1,8 @@
 # Efficient-frontiers
 The paper is organized into two parts. The first part aims to perform a simple descriptive analysis of 6 stocks downloaded from **Yahoo Finance**, while the goal of the second part is to build two efficient frontiers: one with the short selling constraints and the other without them.
 
+At the end, the cumulative performance that would be by obtained investing in the Global Minimum Variance Portfolio of the best efficient frontier is computed as a sort of backtesting procedure.
+
 ## Preliminary steps
 The first thing to do is to clear the environment and the graphical window, and to install and load the required packages.
 In this paper we rely on 4 packages, which allow us to exploit some useful functions. In particular:
@@ -23,6 +25,7 @@ The chosen stocks are:
 - **Procter & Gamble** (PG), one of the most important producers of fast-moving consumer goods;
 - **The Coca-Cola Company** (KO), an American multinational beverage corporation operating in the food industry;
 - **JP Morgan** (JPM), a huge investment bank and financial services holding company.
+
 Let us start by printing the time series of the stocks:
 
 ![stock time series](https://user-images.githubusercontent.com/90756113/133433923-44f735fd-344d-42c7-b538-d6716c10a308.png)
@@ -103,9 +106,7 @@ These are monthly data and even in this case we see something interesting. First
 As we see, the stock with the higher average return is Walt Disney, whereas the one with the lowest value is IBM. What can be said about the riskiness of those assets?
 
 ![variance - covariance matrix](https://user-images.githubusercontent.com/90756113/133436598-b21573be-a7d0-49b5-b35e-a32c6469ffbe.png)
-
 ![correlation matrix](https://user-images.githubusercontent.com/90756113/133436659-dc8d52ca-8302-490a-a81d-4f644df5de21.png)
-
 With respect to the variance - covariance matrix, we notice that the less risky stock is Procter & Gamble, while the riskiest is Boeing. This makes sense if we keep in mind the period we are considering. In particular, on one hand, PG produces primary goods of common use, therefore we can suspect that their business is not affected too much by a pandemic. Regardless the situation, there are some goods that are necessary for everyday life. On the other hand, Boeing is a company which mostly produces airplanes. Therefore, it is normal that its business is hit hardly by the pandemic.
 
 Considering the correlation matrix we notice something we do not like. Indeed, there are some relatively high values. Excluding the correlations between KO and DIS, and KO and PG, all the highest values regard correlations between JPM and other firms. Probably, this is due to the fact that JP Morgan is a huge investment bank which lends money to many different companies and has a lot of investments, therefore its returns are correlated with the ones of many other sectors and firms.
@@ -191,6 +192,7 @@ Even in this case, we see that the efficient frontier performs better than the b
 # Backtesting procedure
 The last part of the paper consists in a sort of backtesting procedure. The aim of the project is not to develop a trading strategy, but it is to perform a descriptive analysis of some securities and to build the two possible efficient frontiers. Therefore, I decided to test the results that would have been obtained investing in the GMVP of the most efficient frontier.
 
+![backtesting procedure](https://user-images.githubusercontent.com/90756113/133439950-aec00ed2-cd4f-4c3f-bf7c-d375a7a09549.png)
 
 
 It is possible to notice that the result is pretty good. Starting from an initial capital of 1000€ the final value is 1499.897€, meaning a cumulative performance of **+49.98%**.

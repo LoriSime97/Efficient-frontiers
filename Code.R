@@ -15,7 +15,7 @@ library(timeSeries)
 library(plot.matrix)
 
 #import data from Yahoo Finance
-getSymbols(c("BA", "DIS", "PG", "IBM", "KO", "JPM"), src = "yahoo", from = "2018-01-01")
+getSymbols(c("BA", "DIS", "PG", "IBM", "KO", "JPM"), src = "yahoo", from = "2018-01-01", to = "2021-04-01")
 
 #select the closing prices and transform them into timeSeries objects
 BA <- as.timeSeries(BA$BA.Close)
